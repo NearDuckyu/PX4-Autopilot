@@ -57,6 +57,14 @@ else
 	bmi088 -G -R 4 -s start
 fi
 
+if ver hwtypecmp V6X08 V6X18 V6X48 V6X58
+then
+	# Internal SPI bus 3x ICM45686
+	icm45686 -b 3 -s -R 0 start
+	icm45686 -b 2 -s -R 0 start
+	icm45686 -b 1 -s -R 10 start
+fi
+
 # Internal SPI bus ICM42688p
 icm42688p -R 6 -s start
 
